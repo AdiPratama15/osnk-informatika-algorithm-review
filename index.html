@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analisis Soal OSN-K Informatika 2021–2025</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a33;
+      --panel2: #182242;
+      --text: #e8ecff;
+      --muted: #a8b3d6;
+      --accent: #7aa2ff;
+      --accent2: #7cf0c5;
+      --border: rgba(255,255,255,.10);
+      --chip: rgba(122,162,255,.14);
+      --shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top left, rgba(122,162,255,.18), transparent 35%),
+                  radial-gradient(circle at top right, rgba(124,240,197,.10), transparent 25%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 18px 64px; }
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(1.7rem, 3vw, 2.7rem); }
+    .sub { color: var(--muted); margin: 0; max-width: 950px; }
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+    .search, .years {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .years {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: .15s transform ease, .15s background ease, .15s border-color ease;
+      text-decoration: none;
+      font-size: .95rem;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(122,162,255,.5); }
+    .btn.active { background: rgba(122,162,255,.22); border-color: rgba(122,162,255,.55); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+    .stat {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    .stat b { display: block; font-size: 1.35rem; margin-bottom: 4px; }
+    .stat span { color: var(--muted); font-size: .94rem; }
+    .cards {
+      display: grid;
+      gap: 14px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card-head {
+      padding: 18px 18px 12px;
+      display: grid;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+    }
+    .topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .year {
+      background: rgba(124,240,197,.18);
+      color: #d9fff3;
+      border: 1px solid rgba(124,240,197,.28);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+    .page {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .title {
+      font-size: 1.22rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    .summary {
+      color: var(--text);
+      opacity: .92;
+      margin: 0;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .chip {
+      background: var(--chip);
+      border: 1px solid rgba(122,162,255,.18);
+      color: #dbe6ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .86rem;
+    }
+    .card-body {
+      padding: 16px 18px 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .subq {
+      display: grid;
+      gap: 10px;
+    }
+    .qitem {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+    .qitem b {
+      display: inline-block;
+      min-width: 54px;
+      color: #cfe0ff;
+    }
+    .meta {
+      display: grid;
+      gap: 7px;
+    }
+    .meta div {
+      color: var(--muted);
+    }
+    .practice {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .practice a {
+      text-decoration: none;
+      background: rgba(124,240,197,.14);
+      border: 1px solid rgba(124,240,197,.20);
+      color: #ddfff5;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: .92rem;
+    }
+    .note {
+      color: var(--muted);
+      font-size: .95rem;
+      background: rgba(255,255,255,.03);
+      border-left: 3px solid rgba(122,162,255,.55);
+      padding: 10px 12px;
+      border-radius: 12px;
+    }
+    .hidden { display: none !important; }
+    footer {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-top: 18px;
+      padding: 12px 2px 0;
+    }
+    @media (max-width: 900px) {
+      .toolbar { grid-template-columns: 1fr; }
+      .years { justify-content: flex-start; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 14px 12px 40px; }
+      .hero, .card-head, .card-body { padding-left: 14px; padding-right: 14px; }
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <h1>Analisis soal OSN-K Informatika Indonesia 2021–2025</h1>
+    <p class="sub">
+      Ringkasan ini memetakan setiap soal yang memuat source code C++ ke nama algoritma yang relevan,
+      struktur data, kompleksitas waktu, formula matematis bila ada, jawaban akhir, dan tautan latihan
+      competitive programming yang dibuka di tab baru.
+    </p>
+  </section>
+
+  <div class="toolbar">
+    <div class="search">
+      <input id="search" type="text" placeholder="Cari tahun, soal, algoritma, jawaban, atau kata kunci..." />
+    </div>
+    <div class="years" id="yearButtons">
+      <button class="btn active" data-year="all">Semua</button>
+      <button class="btn" data-year="2025">2025</button>
+      <button class="btn" data-year="2024">2024</button>
+      <button class="btn" data-year="2023">2023</button>
+      <button class="btn" data-year="2022">2022</button>
+      <button class="btn" data-year="2021">2021</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>33</b><span>blok soal C++ dianalisis</span></div>
+    <div class="stat"><b>5</b><span>tahun PDF OSN-K / KSNK</span></div>
+    <div class="stat"><b>60</b><span>nomor soal yang tercakup</span></div>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <footer>
+    Catatan: PDF 2021 dipindai sebagai gambar, sehingga beberapa detail ditafsirkan dari isi visual. Pada soal 2021 nomor 35, nilai A ditulis sesuai potongan kode yang terlihat.
+  </footer>
+</div>
+
+<script>
+const DATA = [{"year": 2025, "page": 21, "title": "Modulo Tiga (TIGA)", "summary": "Relasi rekurens dengan cabang berdasarkan N mod 3. Secara matematis bisa diperlakukan sebagai rekursi; jika dimemoisasi, ini menjadi dynamic programming.", "algo": "Rekursi, relasi rekurens, dynamic programming (jika dioptimasi)", "ds": "call stack; memo array opsional", "complexity": "Naive: bercabang eksponensial; dengan memoization O(N)", "formula": "Relasi rekurens", "practice": [], "items": [{"q": "26", "prompt": "pilihan nilai kembali terbesar", "answer": "D (TIGA(18))", "detail": "Nilainya 7, dan paling besar di antara opsi."}, {"q": "27", "prompt": "banyak N ≤ 2025 dengan hasil 1", "answer": "1350", "detail": "Pola tertutup: TIGA(3k)=k+1, sedangkan TIGA(3k+1)=TIGA(3k+2)=1."}, {"q": "28", "prompt": "jumlah TIGA(1) s.d. TIGA(100)", "answer": "661", "detail": "Menjumlahkan pola periodik 3."}], "notes": "Pola tertutup yang berguna: TIGA(3k)=k+1 dan TIGA(3k+1)=TIGA(3k+2)=1."}, {"year": 2025, "page": 22, "title": "FUN dan GSI", "summary": "Prefix sum dipakai untuk menghitung jumlah subarray, lalu seluruh subarray dicoba untuk mencari nilai maksimum.", "algo": "Prefix sum / cumulative sum; brute-force maximum subarray sum (problem klasik ini juga terkait Kadane's algorithm)", "ds": "vector<int>, prefix array", "complexity": "O(N^2) waktu, O(N) ruang", "formula": "Prefix sum", "practice": [{"title": "CSES – Maximum Subarray Sum", "url": "https://cses.fi/problemset/task/1643"}], "items": [{"q": "29", "prompt": "isi vector B untuk A={1,2,3,4,5}", "answer": "B = {0,1,3,6,10,15}", "detail": "B[0]=0 lalu prefix sums bertambah."}, {"q": "30", "prompt": "GSI mana yang terbesar", "answer": "A", "detail": "GSI(B,1,4)=10 paling besar."}, {"q": "31", "prompt": "FUN pada array 16 elemen", "answer": "9", "detail": "Itu adalah maksimum subarray sum."}], "notes": ""}, {"year": 2025, "page": 24, "title": "Dua String", "summary": "String T dibalik dulu, lalu dicari kemunculannya di S dengan pencocokan karakter demi karakter.", "algo": "Pembalikan string + brute-force string matching / substring search", "ds": "string / char array", "complexity": "O(|S|·|T|) waktu, O(1) tambahan", "formula": "Tidak ada formula khusus; ini pola pencocokan substring", "practice": [{"title": "CSES – String Matching", "url": "https://cses.fi/problemset/task/1753"}], "items": [{"q": "32", "prompt": "DUA(\"ABCBAABCCBAABC\",\"CBA\")", "answer": "3", "detail": "Setelah dibalik, T menjadi \"ABC\"."}, {"q": "33", "prompt": "nilai maksimum untuk S panjang 30-an itu", "answer": "7", "detail": "Mencari T dengan jumlah kemunculan terbesar."}, {"q": "34", "prompt": "banyak T sehingga DUA(S,T)=2", "answer": "7", "detail": "Sama dengan banyak substring berbeda yang muncul tepat dua kali."}], "notes": ""}, {"year": 2025, "page": 26, "title": "Rahasia Petak 5x5", "summary": "RAHASIA menghitung elemen yang jumlah yang lebih besar dan lebih kecil di sekelilingnya seimbang; pada array ganjil dengan elemen berbeda, ini adalah median.", "algo": "Order statistic / median", "ds": "array / matrix", "complexity": "As written O(N^2) per array; untuk N tetap kecil dianggap konstan", "formula": "Median (order statistic)", "practice": [{"title": "CSES – Sliding Window Median", "url": "https://cses.fi/problemset/task/1076"}], "items": [{"q": "35", "prompt": "RAHASIA({16,5,20,1,11})", "answer": "11", "detail": "Median dari lima bilangan berbeda."}, {"q": "36", "prompt": "PETAK pada matriks 5x5", "answer": "12", "detail": "Masing-masing baris memberi median, lalu median dari lima median itu."}, {"q": "37", "prompt": "maksimum untuk pengisian 1..25", "answer": "23", "detail": "Maksimalkan median median baris menjadi 21..25 sehingga median akhirnya 23."}], "notes": "Pada soal ini, RAHASIA = median untuk panjang ganjil dengan semua nilai berbeda."}, {"year": 2025, "page": 28, "title": "Merah–Putih–Nusantara", "summary": "MERAH adalah gcd dengan bentuk modulo (Euclidean algorithm). PUTIH menghitung banyaknya C yang gcd(A,C)=B. NUSANTARA membungkusnya.", "algo": "Euclidean algorithm (modulo form), Euler's totient function", "ds": "rekursi / call stack", "complexity": "MERAH: O(log min(A,B)); PUTIH/NUSANTARA: O(A) sesuai loop", "formula": "Euler's totient function φ(n); NUSANTARA(A,B)=φ(A/B) bila B | A, selain itu 0", "practice": [{"title": "CSES – Common Divisors", "url": "https://cses.fi/problemset/task/1081"}], "items": [{"q": "38", "prompt": "pilihan gcd terbesar", "answer": "D (MERAH(24,18)=6)", "detail": "gcd(24,18)=6 adalah yang terbesar."}, {"q": "39", "prompt": "NUSANTARA(12,3)", "answer": "2", "detail": "φ(4)=2."}, {"q": "40", "prompt": "NUSANTARA(2025,135)", "answer": "8", "detail": "φ(15)=8."}], "notes": ""}, {"year": 2024, "page": 21, "title": "Cek dan Ricek", "summary": "cek memeriksa urutan nondecreasing. ricek hanya butuh ada setidaknya satu pasangan berurutan yang tidak menurun.", "algo": "Linear scan / traversal string", "ds": "string / array karakter", "complexity": "O(n) waktu, O(1) ruang", "formula": "Stars and bars / multiset coefficient untuk hitung string nondecreasing", "practice": [], "items": [{"q": "26", "prompt": "pilihan yang TRUE untuk cek", "answer": "B", "detail": "Hanya BEGITU yang tidak menurun di semua karakter."}, {"q": "27", "prompt": "jumlah string panjang 3 yang cek=true", "answer": "3276", "detail": "C(26+3-1,3)=C(28,3)."}, {"q": "28", "prompt": "apakah cek(S)=ricek(S) untuk semua S", "answer": "SALAH", "detail": "Contoh bantahan: BAA."}], "notes": ""}, {"year": 2024, "page": 22, "title": "go / Start dan Finish?", "summary": "go menelusuri faktor pembagi N dan menghitung selisih antara divisor yang berurutan.", "algo": "Divisor enumeration / brute-force factor scan", "ds": "variabel integer", "complexity": "O(N) waktu, O(1) ruang", "formula": "Tidak ada formula khusus; ini soal selisih antar pembagi", "practice": [{"title": "CSES – Common Divisors", "url": "https://cses.fi/problemset/task/1081"}], "items": [{"q": "29", "prompt": "go(30)", "answer": "15", "detail": "Divisor 30: 1,2,3,5,6,10,15,30 -> gap maksimum 15."}, {"q": "30", "prompt": "nilai terbesar go(N) untuk 1..100", "answer": "96", "detail": "Terjadi pada N=97 (bilangan prima)."}, {"q": "31", "prompt": "apakah go(N) ≥ N/2 untuk N>1", "answer": "BENAR", "detail": "Karena divisor terakhir selalu N dan divisor sebelumnya ≤ N/2."}], "notes": ""}, {"year": 2024, "page": 23, "title": "Ke Kiri dan Kanan", "summary": "dua_mata adalah binary-search-like recursion: pilih tengah, lalu rekursi ke kiri atau kanan berdasarkan tanda nilai tengah.", "algo": "Binary search / divide and conquer recursion", "ds": "array / vector", "complexity": "O(log N) waktu, O(log N) stack", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "32", "prompt": "pilihan yang TRUE", "answer": "C", "detail": "Array menurun dengan 0 di tengah kanan mengarah ke basis true."}, {"q": "33", "prompt": "estimasi waktu untuk N=8000", "answer": "26 detik", "detail": "Dari 20 detik ke 22 detik saat N digandakan, berarti logaritmik."}, {"q": "34", "prompt": "banyak vektor panjang 7 dari {-1,0,1} yang TRUE", "answer": "324", "detail": "Hasil hitung brute force pada 3^7 kemungkinan."}], "notes": "Sangat mirip pencarian biner, tetapi basisnya nilai negatif/positif/0."}, {"year": 2024, "page": 24, "title": "Panas Dingin", "summary": "panas menjumlahkan digit, dingin mencari kelipatan Y pertama yang jumlah digitnya sama dengan X.", "algo": "Digit sum recursion + brute-force repeated addition", "ds": "integer / recursion", "complexity": "O(k · d) dengan k jumlah kelipatan yang dicoba dan d jumlah digit", "formula": "Fungsi jumlah digit (digit sum)", "practice": [], "items": [{"q": "35", "prompt": "dingin(10,7)", "answer": "28", "detail": "28 adalah kelipatan 7 pertama yang digit sum-nya 10."}, {"q": "36", "prompt": "dingin(2,35)", "answer": "10010", "detail": "Itu kelipatan 35 pertama dengan digit sum 2."}, {"q": "37", "prompt": "banyak pasangan <X,Y> berbeda dengan hasil 77", "answer": "3", "detail": "Pasangan valid: (14,7), (14,11), (14,77)."}], "notes": ""}, {"year": 2024, "page": 25, "title": "Fungsi Pendek", "summary": "pndk adalah recurrence Josephus klasik. Untuk K=2 ada bentuk tertutup yang sangat terkenal.", "algo": "Josephus problem recurrence / recurrence relation", "ds": "rekursi / stack", "complexity": "O(N) waktu per pemanggilan, O(N) stack bila dievaluasi rekursif langsung", "formula": "Josephus closed form untuk K=2: J(N,2)=2(N-2^{⌊log2 N⌋})+1", "practice": [{"title": "CSES – Josephus Problem I", "url": "https://cses.fi/problemset/task/2162"}], "items": [{"q": "38", "prompt": "pndk(7,7)", "answer": "5", "detail": "Dievaluasi langsung dari rekurens."}, {"q": "39", "prompt": "pilihan terbesar untuk K=3", "answer": "D (pndk(60,3))", "detail": "Outputnya 41, terbesar di antara opsi."}, {"q": "40", "prompt": "N antara 1..5000 yang memberi hasil terbesar saat K=2", "answer": "4095", "detail": "Ini bentuk 2^12−1, maksimum pada rentang tersebut."}], "notes": ""}, {"year": 2023, "page": 11, "title": "Arithmetika dasar", "summary": "Semua operasi bersifat langsung: penjumlahan, perkalian, dan if bertingkat.", "algo": "Basic arithmetic / conditional branching", "ds": "variabel integer", "complexity": "O(1)", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "26", "prompt": "nilai x untuk input 1 2 3 5", "answer": "35", "detail": "Setelah update berantai, x = 35."}, {"q": "27", "prompt": "nilai x untuk a=12,b=23,c=45,d=78", "answer": "6084", "detail": "Yang dipilih adalah maksimum, lalu d^2."}], "notes": ""}, {"year": 2023, "page": 12, "title": "Loop bintang", "summary": "Program hanya menghitung banyaknya karakter '*' yang dicetak oleh dua loop bertingkat.", "algo": "Loop simulation", "ds": "variabel integer", "complexity": "O(m+n) untuk menghitung banyak cetakan", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "28", "prompt": "bintang yang tercetak untuk m=30,n=10", "answer": "360", "detail": "Semua i genap mencetak i bintang, i ganjil mencetak n bintang."}, {"q": "29", "prompt": "nilai akhir y", "answer": "201", "detail": "Loop berhenti saat salah satu syarat tak terpenuhi."}], "notes": ""}, {"year": 2023, "page": 12, "title": "Akses array bertingkat", "summary": "Sebuah penugasan menggunakan indeks yang saling menelusuri array lagi dan lagi.", "algo": "Nested array indexing / simulation", "ds": "array", "complexity": "O(1) untuk satu ekspresi", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "30", "prompt": "nilai ans setelah penugasan", "answer": "7", "detail": "Elemen a[7] berubah dari 1 menjadi 8, sehingga selisih sum = 7."}], "notes": ""}, {"year": 2023, "page": 13, "title": "kebersamaan", "summary": "State 4 variabel digeser seperti queue: a→b→c→d lalu d diisi x, dan ans menampung nilai a lama.", "algo": "Shift-register / queue-like state update", "ds": "empat variabel scalar", "complexity": "O(1) per pemanggilan", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "31", "prompt": "nilai akhir ans", "answer": "31", "detail": "Hasil akumulasi dari pemanggilan kebersamaan berturut-turut."}], "notes": ""}, {"year": 2023, "page": 14, "title": "bawah", "summary": "Fungsi ini memakai dua helper kiri/kanan dan loop while. Secara praktis ini simulasi dengan side effects pada variabel global.", "algo": "Simulation with side effects; recursion/iteration campuran", "ds": "variabel global + rekursi/loop", "complexity": "Tergantung jumlah iterasi loop", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "32", "prompt": "bawah(42,17,265)", "answer": "727", "detail": "Hasil akhir setelah loop dan penyesuaian d, a, b, c."}], "notes": ""}, {"year": 2023, "page": 14, "title": "berhiber", "summary": "Kombinasi dua fungsi sederhana lalu rekursi turun bersama x dan y.", "algo": "Recursion / arithmetic series", "ds": "rekursi / stack", "complexity": "O(y) waktu dan O(y) stack", "formula": "Tidak ada formula khusus; hasilnya merupakan penjumlahan bertahap", "practice": [], "items": [{"q": "33", "prompt": "berhiber(20,15)", "answer": "390", "detail": "Setiap langkah menyumbang 2x, lalu turun ke (x-1,y-1)."}], "notes": ""}, {"year": 2023, "page": 14, "title": "Mutual recursion info/format/matika", "summary": "Tiga fungsi saling memanggil. Secara matematis semua nilai mengikuti pola 2^x.", "algo": "Mutual recursion", "ds": "call stack / recursion tree", "complexity": "Naive: eksponensial; dengan memoization O(n)", "formula": "Solusi tertutup: 2^x", "practice": [], "items": [{"q": "34", "prompt": "info(9)", "answer": "512", "detail": "Karena pola tertutup 2^9."}], "notes": ""}, {"year": 2023, "page": 15, "title": "hijau–merah–biru", "summary": "hijau adalah Euclidean algorithm versi subtraction. merah menjumlahkan gcd pada deret aritmetika. biru mengurangkan dua jumlah yang sama.", "algo": "Euclidean algorithm (subtractive form), summation over arithmetic progression", "ds": "rekursi / stack", "complexity": "Literal code: O(n^2) atau lebih, karena banyak pemanggilan gcd rekursif", "formula": "GCD / Euclidean algorithm", "practice": [{"title": "CSES – Common Divisors", "url": "https://cses.fi/problemset/task/1081"}], "items": [{"q": "35", "prompt": "biru(69)", "answer": "0", "detail": "Dua jumlah yang dihitung ternyata sama, sehingga selisihnya nol."}], "notes": ""}, {"year": 2022, "page": 12, "title": "Operasi aritmetika dasar", "summary": "Semua berupa substitusi nilai dan keputusan if sederhana.", "algo": "Basic arithmetic / conditional branching", "ds": "variabel integer", "complexity": "O(1)", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "26", "prompt": "output untuk input 11 6 7", "answer": "56", "detail": "Substitusi langsung ke rumus cetak."}, {"q": "27", "prompt": "output untuk 89 78 100 105", "answer": "100", "detail": "Program memilih nilai minimum dari empat angka."}], "notes": ""}, {"year": 2022, "page": 13, "title": "Merge array terurut", "summary": "Program ini mencoba menggabungkan dua array terurut seperti tahap merge pada merge sort, tetapi ada kesalahan logika.", "algo": "Merge step dari merge sort", "ds": "array", "complexity": "Intended O(n+m)", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "28", "prompt": "baris yang menyebabkan output salah", "answer": "8", "detail": "Perlu &&, bukan ||. Secara logika baris 18 juga bermasalah jika loop diperbaiki."}], "notes": "Baris 8 adalah sumber utama kesalahan karena akses A[i]/B[j] dengan kondisi OR."}, {"year": 2022, "page": 14, "title": "LCM, gcd, dan pembandingan", "summary": "Bagian pertama mengubah C dan D menjadi kelipatan persekutuan, bagian kedua memakai pengurangan berulang seperti Euclidean algorithm.", "algo": "Repeated addition for LCM + subtractive Euclidean algorithm", "ds": "variabel integer", "complexity": "Linear terhadap banyak pengulangan; Euclid subtraction bisa lama pada input besar", "formula": "Hubungan gcd/lcm: lcm(a,b)=a·b/gcd(a,b)", "practice": [], "items": [{"q": "29", "prompt": "output untuk input 5000 700", "answer": "350", "detail": "C dan D bertemu di 35000, lalu gcd(5000,700)=100."}], "notes": ""}, {"year": 2022, "page": 14, "title": "Manipulasi string INFORMTIKA", "summary": "Tiga assignment dalam loop saling menukar karakter dalam array char.", "algo": "In-place string swapping / array manipulation", "ds": "char array", "complexity": "O(n)", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "30", "prompt": "output string", "answer": "AKITAMATIKA", "detail": "Hasil akhir setelah swap berantai."}], "notes": ""}, {"year": 2022, "page": 14, "title": "jalanjalan", "summary": "Loop deterministik menaikkan kiri dengan langkah 1,2,atau 3 tergantung sisa bagi 7 dan 3.", "algo": "Deterministic simulation / branching iteration", "ds": "variabel integer", "complexity": "O(jumlah iterasi)", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "31", "prompt": "jalanjalan(10,1000)", "answer": "991", "detail": "Nilai energi sama dengan total increment kiri."}], "notes": ""}, {"year": 2022, "page": 15, "title": "kwik–kwek–kwak", "summary": "Tiga fungsi bersarang membentuk penjumlahan bertingkat yang sangat lambat jika dievaluasi mentah.", "algo": "Nested loops and function composition", "ds": "variabel integer / call stack", "complexity": "Roughly O(n^3) dari bentuk literalnya", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "32", "prompt": "kwak(10)", "answer": "388", "detail": "Hasil akumulasi dari kwik dan kwek."}], "notes": ""}, {"year": 2022, "page": 15, "title": "bahagia", "summary": "Fungsi mencetak sisa bagi 2 lalu rekursi ke pembagian 2, sehingga menghasilkan representasi biner terbalik.", "algo": "Recursion / binary decomposition", "ds": "call stack", "complexity": "O(log A)", "formula": "Representasi basis-2 / binary expansion", "practice": [], "items": [{"q": "33", "prompt": "bahagia(1111)", "answer": "11101010001", "detail": "Urutan bit LSB→MSB."}], "notes": ""}, {"year": 2022, "page": 15, "title": "putih–merah", "summary": "putih menghitung panjang representasi biner (bit-length). merah menurunkan x sampai sama dengan y.", "algo": "Recursion + bit-length formula", "ds": "call stack", "complexity": "O(x-y + log x)", "formula": "Bit-length: floor(log2 x)+1 untuk x>0", "practice": [], "items": [{"q": "34", "prompt": "merah(100,50)", "answer": "56", "detail": "50 langkah menuju x=y, lalu putih(50)=6."}], "notes": ""}, {"year": 2022, "page": 16, "title": "hitung", "summary": "Ada bug comma operator: (x - 1, y - 1) + 1 bernilai y, bukan kombinasi dua variabel.", "algo": "Recursion with a comma-operator bug", "ds": "call stack", "complexity": "O(x) sampai x menjadi negatif", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "35", "prompt": "hitung(10,5)", "answer": "10240", "detail": "y digandakan 11 kali lalu dikembalikan."}], "notes": "Baris `return (x - 1, y - 1) + 1;` secara C++ hanya memakai nilai `y - 1` lalu ditambah 1."}, {"year": 2021, "page": 10, "title": "cari", "summary": "Fungsi menelusuri bilangan pada interval [left,right] dan menghitung pola kelipatan tertentu.", "algo": "Linear scan / traversal interval", "ds": "variabel integer", "complexity": "O(right-left+1)", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "26", "prompt": "cari(1,100)", "answer": "24", "detail": "Hitung nilai yang memenuhi syarat cabang if."}, {"q": "27", "prompt": "cari(1000,2000)", "answer": "244", "detail": "Dengan pola yang sama di interval lebih besar."}], "notes": ""}, {"year": 2021, "page": 11, "title": "f dan g", "summary": "f mengikuti relasi Pascal triangle; g menambah deret f secara rekursif.", "algo": "Pascal triangle / binomial coefficients; recursion (dynamic programming jika dimemoisasi)", "ds": "call stack", "complexity": "Naive recursion: eksponensial; memoization O(xy)", "formula": "Binomial coefficient / Pascal's triangle", "practice": [], "items": [{"q": "28", "prompt": "f(9,5)", "answer": "2002", "detail": "Sesuai C(14,9)=C(14,5)."}, {"q": "29", "prompt": "g(10,5)", "answer": "8008", "detail": "Pola rekursifnya memberi nilai binomial yang lebih besar."}], "notes": ""}, {"year": 2021, "page": 12, "title": "lap_satu / lap_dua / lap_tiga", "summary": "Perulangan modular pada 40 state; ini mirip finite-state machine sederhana.", "algo": "Repeated modular iteration / state machine; cycle length analysis", "ds": "scalar state variables", "complexity": "Tergantung panjang siklus sampai dua state sama", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "30", "prompt": "lap_dua()", "answer": "3", "detail": "Setelah lap_satu, lap_dua butuh 3 langkah sampai kelinci=kurakura."}, {"q": "31", "prompt": "lap_tiga()", "answer": "4", "detail": "Langkah berikutnya sampai kelinci menyamai kurakura."}], "notes": ""}, {"year": 2021, "page": 14, "title": "bantu (heapify-up)", "summary": "Loop melakukan perbandingan dengan parent lalu swap ke atas, persis operasi insert pada binary max-heap.", "algo": "Binary heap / max-heap insertion (heapify-up)", "ds": "array / binary heap", "complexity": "O(N log N) total untuk membangun struktur lewat penyisipan satu-satu", "formula": "Binary heap / priority queue", "practice": [{"title": "Codeforces – Heap Operations (681C)", "url": "https://codeforces.com/problemset/problem/681/C"}], "items": [{"q": "32", "prompt": "nilai arr[1] sesudah bantu()", "answer": "10", "detail": "Elemen maksimum naik ke akar heap."}], "notes": ""}, {"year": 2021, "page": 14, "title": "batu–kertas", "summary": "batu adalah Euclidean algorithm versi modulo. kertas menjumlahkan kontribusi angka yang coprime terhadap i.", "algo": "Euclidean algorithm (modulo form) + totient summatory formula", "ds": "rekursi / stack", "complexity": "batu: O(log min(x,y)); kertas: O(n log n) secara teori jika phi diprekomputasi, tapi literalnya lebih berat", "formula": "Euler's totient function dan identitas Σ floor(n/i) φ(i)", "practice": [{"title": "CSES – Common Divisors", "url": "https://cses.fi/problemset/task/1081"}], "items": [{"q": "33", "prompt": "A=3,B=4,C=5 -> output A+B+C", "answer": "13", "detail": "Setelah A=B, B=C, C=A."}, {"q": "34", "prompt": "kertas(100)", "answer": "5050", "detail": "Menggunakan identitas totient summatory."}], "notes": ""}, {"year": 2021, "page": 15, "title": "output 3 dari potongan if", "summary": "Program mengubah A dan B, lalu menimpa C dengan 1 atau 2 jika A<B atau A>B. Agar output 3, C harus tetap 3 dan dua kondisi akhir harus sama-sama tidak aktif.", "algo": "Basic arithmetic / conditional branching", "ds": "variabel integer", "complexity": "O(1)", "formula": "Tidak ada formula khusus", "practice": [], "items": [{"q": "35", "prompt": "input A yang konsisten dengan output 3", "answer": "2", "detail": "Dengan B=0 dan C=3 pada potongan kode yang tampak, nilai A harus 2."}], "notes": "Catatan: pada scan, konteks input untuk B dan C tidak tampak lengkap; saya tulis nilai A yang konsisten dari kode yang terlihat."}];
+
+function esc(s) {
+  return String(s)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
+function practiceHtml(practice) {
+  if (!practice || !practice.length) return '';
+  return `
+    <div class="practice">
+      <span style="color:var(--muted)">Latihan serupa:</span>
+      ${practice.map(p => `<a href="${p.url}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a>`).join('')}
+    </div>
+  `;
+}
+
+function cardHtml(card) {
+  const items = card.items.map(it => `
+    <div class="qitem">
+      <div><b>Soal ${it.q}</b> ${esc(it.prompt)}</div>
+      <div style="margin-top:6px;"><b>Jawaban</b> ${esc(it.answer)}</div>
+      ${it.detail ? `<div class="meta"><div>${esc(it.detail)}</div></div>` : ''}
+    </div>
+  `).join('');
+
+  const chips = [
+    card.algo,
+    card.ds ? `Struktur data: ${card.ds}` : '',
+    card.complexity ? `Kompleksitas: ${card.complexity}` : '',
+    card.formula ? `Formula: ${card.formula}` : '',
+  ].filter(Boolean).map(x => `<span class="chip">${esc(x)}</span>`).join('');
+
+  const pdfUrl = `https://osn.toki.id/data/${card.year === 2021 ? 'KSNK2021' : 'OSNK' + card.year}.pdf#page=${card.page}`;
+
+  const searchText = (card.year + ' ' + card.title + ' ' + card.summary + ' ' + card.algo + ' ' + card.ds + ' ' + card.complexity + ' ' + card.formula + ' ' + card.notes + ' ' + card.items.map(i => [i.q, i.prompt, i.answer, i.detail].join(' ')).join(' ')).toLowerCase();
+
+  return `
+    <article class="card" data-year="${card.year}" data-search="${esc(searchText)}">
+      <div class="card-head">
+        <div class="topline">
+          <span class="year">${card.year}</span>
+          <span class="page">Halaman PDF ${card.page}</span>
+          <a class="btn" href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Buka PDF</a>
+        </div>
+        <h2 class="title">${esc(card.title)}</h2>
+        <p class="summary">${esc(card.summary)}</p>
+        <div class="chips">${chips}</div>
+      </div>
+      <div class="card-body">
+        ${practiceHtml(card.practice)}
+        <div class="subq">${items}</div>
+        ${card.notes ? `<div class="note">${esc(card.notes)}</div>` : ''}
+      </div>
+    </article>
+  `;
+}
+
+const cardsEl = document.getElementById('cards');
+cardsEl.innerHTML = DATA.map(cardHtml).join('');
+
+const searchEl = document.getElementById('search');
+const yearButtons = document.getElementById('yearButtons');
+let activeYear = 'all';
+
+function filterCards() {
+  const query = searchEl.value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(card => {
+    const yearMatch = activeYear === 'all' || card.dataset.year === activeYear;
+    const text = card.dataset.search;
+    const queryMatch = !query || text.includes(query);
+    card.classList.toggle('hidden', !(yearMatch && queryMatch));
+  });
+}
+
+searchEl.addEventListener('input', filterCards);
+yearButtons.addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-year]');
+  if (!btn) return;
+  activeYear = btn.dataset.year;
+  yearButtons.querySelectorAll('.btn').forEach(b => b.classList.toggle('active', b === btn));
+  filterCards();
+});
+</script>
+</body>
+</html>
